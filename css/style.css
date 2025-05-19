@@ -60,22 +60,22 @@ body {
     right: -2px;
     bottom: -2px;
     background: linear-gradient(45deg, 
-        rgba(0, 255, 0, 0.5),
-        rgba(0, 255, 255, 0.5),
-        rgba(255, 0, 255, 0.5),
-        rgba(0, 255, 0, 0.5));
+        rgba(0, 255, 0, 0.2),
+        rgba(0, 255, 255, 0.2),
+        rgba(255, 0, 255, 0.2),
+        rgba(0, 255, 0, 0.2));
     border-radius: 22px;
     z-index: -1;
-    animation: borderGlow 8s linear infinite;
-    opacity: 0.7;
+    animation: borderGlow 12s linear infinite;
+    opacity: 0.4;
 }
 
 @keyframes borderGlow {
     0% { 
-        filter: hue-rotate(0deg) brightness(0.8);
+        filter: hue-rotate(0deg) brightness(0.6);
     }
     100% { 
-        filter: hue-rotate(360deg) brightness(0.8);
+        filter: hue-rotate(360deg) brightness(0.6);
     }
 }
 
