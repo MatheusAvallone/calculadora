@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     -webkit-touch-callout: none;
@@ -22,16 +22,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: #0a0a0a;
+    background-image: 
+        linear-gradient(45deg, #000000 25%, transparent 25%),
+        linear-gradient(-45deg, #000000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #000000 75%),
+        linear-gradient(-45deg, transparent 75%, #000000 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .calculator {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
     border-radius: 20px;
     padding: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px #00ff00,
+                inset 0 0 20px rgba(0, 255, 0, 0.2);
     width: 100%;
     max-width: 500px;
     height: 100%;
@@ -39,6 +47,25 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
+}
+
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #00ff00);
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
 }
 
 .display {
@@ -49,17 +76,16 @@ body {
 #display {
     width: 100%;
     height: 50px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00ff00;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 0 15px;
     font-size: 16px !important;
-    color: white;
+    color: #00ff00;
     text-align: right;
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    text-shadow: 0 0 5px #00ff00;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
 .mode-switch {
@@ -72,17 +98,18 @@ body {
 .mode-btn {
     flex: 1;
     padding: 8px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    border: 1px solid #00ff00;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    -webkit-tap-highlight-color: transparent;
+    text-shadow: 0 0 5px #00ff00;
 }
 
 .mode-btn.active {
-    background: rgba(52, 152, 219, 0.5);
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px #00ff00;
 }
 
 .buttons {
@@ -97,41 +124,48 @@ body {
 
 button {
     padding: 10px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    border: 1px solid #00ff00;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
     font-size: 12px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    text-shadow: 0 0 5px #00ff00;
 }
 
 button:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px #00ff00;
     transform: translateY(-2px);
 }
 
 button:active {
     transform: translateY(0);
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 255, 0, 0.3);
 }
 
 .operator {
-    background: rgba(52, 152, 219, 0.3);
+    background: rgba(0, 255, 255, 0.1);
+    border-color: #00ffff;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
     font-size: 14px;
 }
 
 .function {
-    background: rgba(155, 89, 182, 0.3);
+    background: rgba(255, 0, 255, 0.1);
+    border-color: #ff00ff;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
     font-size: 11px;
 }
 
 .equals {
-    background: rgba(46, 204, 113, 0.3);
+    background: rgba(0, 255, 0, 0.2);
     grid-column: span 2;
     font-size: 14px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
 @media (max-width: 520px) {
