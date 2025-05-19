@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Científica Completa</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="display" readonly />
+    </div>
+    <div class="mode-switch">
+      <button class="mode-btn active" onclick="switchMode('deg')">DEG</button>
+      <button class="mode-btn" onclick="switchMode('rad')">RAD</button>
+      <button class="mode-btn" onclick="switchMode('grad')">GRAD</button>
+    </div>
+    <div class="buttons">
+      <button class="operator" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="deleteLastChar()">←</button>
+      <button class="operator" onclick="appendToDisplay('%')">%</button>
+      <button class="operator" onclick="appendToDisplay('/')">/</button>
+
+      <button class="function" onclick="calculateFunction('sin')">sin</button>
+      <button class="function" onclick="calculateFunction('cos')">cos</button>
+      <button class="function" onclick="calculateFunction('tan')">tan</button>
+      <button class="operator" onclick="appendToDisplay('*')">×</button>
+
+      <button class="function" onclick="calculateFunction('asin')">sin⁻¹</button>
+      <button class="function" onclick="calculateFunction('acos')">cos⁻¹</button>
+      <button class="function" onclick="calculateFunction('atan')">tan⁻¹</button>
+      <button class="operator" onclick="appendToDisplay('-')">-</button>
+
+      <button class="function" onclick="calculateFunction('sinh')">sinh</button>
+      <button class="function" onclick="calculateFunction('cosh')">cosh</button>
+      <button class="function" onclick="calculateFunction('tanh')">tanh</button>
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
+
+      <button class="function" onclick="calculateFunction('asinh')">sinh⁻¹</button>
+      <button class="function" onclick="calculateFunction('acosh')">cosh⁻¹</button>
+      <button class="function" onclick="calculateFunction('atanh')">tanh⁻¹</button>
+      <button class="function" onclick="appendToDisplay('(')">(</button>
+
+      <button class="function" onclick="calculateFunction('log')">log</button>
+      <button class="function" onclick="calculateFunction('ln')">ln</button>
+      <button class="function" onclick="calculateFunction('exp')">exp</button>
+      <button class="function" onclick="appendToDisplay(')')">)</button>
+
+      <button class="function" onclick="calculateFunction('sqrt')">√</button>
+      <button class="function" onclick="appendToDisplay('**')">x^y</button>
+      <button class="function" onclick="appendToDisplay('**2')">x²</button>
+      <button class="function" onclick="appendToDisplay('**3')">x³</button>
+
+      <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
+      <button class="function" onclick="appendToDisplay('Math.E')">e</button>
+      <button class="function" onclick="calculateFunction('factorial')">x!</button>
+      <button class="function" onclick="calculateFunction('abs')">|x|</button>
+
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button class="function" onclick="calculateFunction('round')">round</button>
+
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button class="function" onclick="calculateFunction('floor')">⌊x⌋</button>
+
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button class="function" onclick="calculateFunction('ceil')">⌈x⌉</button>
+
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button class="equals" onclick="calculate()">=</button>
+      <button class="function" onclick="calculateFunction('random')">rand</button>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
